@@ -1,11 +1,12 @@
 import react from "react";
 import { View , StyleSheet } from "react-native";
 import CheckWheather from "./src/components/CheckWheather";
+import UpcomingWheather from "./src/components/UpcomingWeather";
 
 const Home  = () => {
   return (
    <View style={styles.container}>
-    <CheckWheather />
+    <UpcomingWheather />
    </View>
   )
 }
