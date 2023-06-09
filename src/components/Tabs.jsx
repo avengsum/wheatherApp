@@ -13,7 +13,18 @@ const Tabs = () => {
         <Tab.Navigator
       screenOptions={{
         tabBarInactiveTintColor: 'tomato',
-        tabBarInactiveTintColor:'grey'
+        tabBarInactiveTintColor:'grey',
+        tabBarBadgeStyle:{
+            backgroundColor: 'lightblue'
+        },
+        headerStyle:{
+            backgroundColor:'lightblue'
+        },
+        headerTitleStyle:{
+            fontWeight:'bold',
+            fontSize:25,
+            color:'tomato'
+        }
       }}>
         <Tab.Screen name={'Current'} component={CheckWheather}
         options={{
