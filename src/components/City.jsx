@@ -1,8 +1,13 @@
 import React from "react";
 import { SafeAreaView , View , Text ,StyleSheet, ImageBackground ,StatusBar } from "react-native";
 import {Feather} from '@expo/vector-icons'
+import { useSelector } from "react-redux";
+import store from "../../store/store";
 
 const City = () => {
+    
+    const data = useSelector(store => store.data.data)
+
     return(
         <SafeAreaView style={styles.container}>
             <ImageBackground source={require('../../assets/city-bg.jpg')} style={styles.imageLayout}>
