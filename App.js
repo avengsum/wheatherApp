@@ -5,17 +5,48 @@ import UpcomingWheather from "./src/components/UpcomingWeather";
 import { NavigationContainer } from "@react-navigation/native";
 import { createBottomTabNavigator } from "@react-navigation/bottom-tabs";
 import City from "./src/components/City";
-import {Feather} from '@expo/vector-icons'
+import { AntDesign } from '@expo/vector-icons';
+import { Feather } from '@expo/vector-icons'; 
 
 const Tab = createBottomTabNavigator()
 
 const Home  = () => {
   return (
     <NavigationContainer>
-      <Tab.Navigator>
-        <Tab.Screen name={'Current'} component={CheckWheather} />
-        <Tab.Screen name={'Upcoming'} component={UpcomingWheather} />
-        <Tab.Screen name={"City"} component={City} />
+      <Tab.Navigator
+      screenOptions={{
+        tabBarInactiveTintColor: 'tomato',
+        tabBarInactiveTintColor:'grey'
+      }}>
+        <Tab.Screen name={'Current'} component={CheckWheather}
+        options={{
+          tabBarIcon:({focused}) => (
+            <Feather 
+            name='droplet'
+            size={25}
+            color={focused ? 'tomato' : 'black' } />
+          )
+        }} />
+        <Tab.Screen name={'Upcoming'} component={UpcomingWheather}
+         options={{
+          tabBarIcon:({focused}) => (
+            <AntDesign
+             name="clockcircleo"
+              size={24}
+              color={focused ? 'tomato' : 'black' } 
+              />
+          
+          )
+        }}  />
+        <Tab.Screen name={"City"} component={City} 
+         options={{
+          tabBarIcon:({focused}) => (
+            <AntDesign 
+            name={'home'}
+            size={25}
+            color={focused ? 'tomato' : 'black' } />
+          )
+        }} />
       </Tab.Navigator>
     </NavigationContainer>
   )
