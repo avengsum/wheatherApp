@@ -1,20 +1,32 @@
-import { StatusBar } from 'expo-status-bar';
-import { StyleSheet, Text, View } from 'react-native';
+import react from "react";
+import { View , StyleSheet } from "react-native";
+import CheckWheather from "./src/components/CheckWheather";
+import UpcomingWheather from "./src/components/UpcomingWeather";
+import { NavigationContainer } from "@react-navigation/native";
+import { createBottomTabNavigator } from "@react-navigation/bottom-tabs";
+import City from "./src/components/City";
+import {Feather} from '@expo/vector-icons'
 
-export default function App() {
+const Tab = createBottomTabNavigator()
+
+const Home  = () => {
   return (
-    <View style={styles.container}>
-      <Text>Open up App.js to start working on your app!</Text>
-      <StatusBar style="auto" />
-    </View>
-  );
+    <NavigationContainer>
+      <Tab.Navigator>
+        <Tab.Screen name={'Current'} component={CheckWheather} />
+        <Tab.Screen name={'Upcoming'} component={UpcomingWheather} />
+        <Tab.Screen name={"City"} component={City} />
+      </Tab.Navigator>
+    </NavigationContainer>
+  )
 }
 
 const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    backgroundColor: '#fff',
-    alignItems: 'center',
-    justifyContent: 'center',
-  },
-});
+  container:{
+    flex:1
+  }
+
+
+})
+
+export default Home
