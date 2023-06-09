@@ -4,15 +4,20 @@ import { NavigationContainer } from '@react-navigation/native'
 import Tabs from './src/components/Tabs'
 import { useGetWeather } from './src/hooks/useGetWeather'
 import ErrorItem from './src/components/ErrorItem'
+import { Provider } from 'react-redux'
+import store from './store/store'
 
 const App = () => {
   const [loading, error, weather] = useGetWeather()
 
   if (weather && weather.list && !loading) {
     return (
+      <Provider store={store}>
       <NavigationContainer>
         <Tabs weather={weather} />
       </NavigationContainer>
+      </Provider>
+     
     )
   }
 

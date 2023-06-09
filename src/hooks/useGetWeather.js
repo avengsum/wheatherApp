@@ -39,3 +39,5 @@ export const useGetWeather = () => {
   }, [lat, lon])
   return [loading, error, weather]
 }
+
+export default useGetWeather
